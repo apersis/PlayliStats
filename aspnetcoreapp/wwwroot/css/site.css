@@ -1,5 +1,7 @@
 html {
   font-size: 14px;
+  position: relative;
+  min-height: 100%;
 }
 
 @media (min-width: 768px) {
@@ -12,11 +14,64 @@ html {
   box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
 }
 
-html {
-  position: relative;
-  min-height: 100%;
-}
-
 body {
   margin-bottom: 60px;
+  background-color:#181a1b;
+  color: #fff;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+th, td {
+  color: #fff;
+  border: 1px solid white;
+  padding: 8px;
+  text-align: left;
+}
+th {
+  cursor: pointer;
+}
+
+.wdt50 {
+  width: 50%;
+}
+
+.wdt20 {
+  width: 20%;
+}
+
+.multiTable {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+}
+
+.background-image {
+  position: relative;
+  width: 200px;
+  height: 200px;
+  background-size: cover;
+  background-position: center;
+  color: white;
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
+  align-items: center;
+  place-content: space-around;
+  text-align: center;
+  font-size: 32px;
+  margin: 20px; /* Espacement entre les divs */
+  border-radius: 5%;
+}
+
+.text-overlay {
+  font-weight: bold;
+  color: #fff;
+  -webkit-text-stroke: 2px #000;
+}
+
+.whith-text {
+  color :#fff;
 }

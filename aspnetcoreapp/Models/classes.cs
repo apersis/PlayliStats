@@ -106,3 +106,16 @@
         public object url { get; set; }
     }
 
+
+    public class ArtistInfo
+    {
+        public string name { get; set; }
+        public int nbrSons { get; set; }
+        public string coverUrl { get; set; }
+
+        public ArtistInfo(string _name, int _nbrSons, string _coverUrl){
+            name = _name;
+            nbrSons = _nbrSons;
+            coverUrl = _coverUrl;
+        }
+    }

@@ -6,28 +6,18 @@
 }
 
 <h1>Nombre de sons par artistes</h1>
+<div class="multiTable">
 
-<table class="table">
-    <thead>
-        <tr>
-            <th>
-                Artiste
-            </th>
-            <th>
-                Nombre de sons
-            </th>
-        </tr>
-    </thead>
-    <tbody>
-@foreach (var item in Model.musiquesParArtistes) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Key)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Value)
-            </td>
-        </tr>
+@{
+    foreach (var item in Model.obsArtistInfo){
+        <div class="background-image" style="background-image: url('@Html.DisplayFor(modelItem => item.coverUrl)');">
+            <h3 class="text-overlay">
+                @Html.DisplayFor(modelItem => item.name)
+            </h3>
+            <h3 class="text-overlay">
+                @Html.DisplayFor(modelItem => item.nbrSons)
+            </h3>
+        </div>
+    }
 }
-    </tbody>
-</table>
+</div>

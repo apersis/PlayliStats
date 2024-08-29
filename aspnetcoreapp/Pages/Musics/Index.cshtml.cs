@@ -9,6 +9,7 @@ using RazorPagesMovie.Data;
 using RazorPagesMovie.Models;
 using System.Collections.ObjectModel;
 using Newtonsoft.Json;
+using Microsoft.CodeAnalysis.CSharp.Syntax;
 
 namespace aspnetcoreapp.Pages_Musics
 {
@@ -21,12 +22,10 @@ namespace aspnetcoreapp.Pages_Musics
             _context = context;
         }
 
-        public Dictionary<string,int> musiquesParArtistes { get;set; } = new Dictionary<string, int>();
+        public ObservableCollection<ArtistInfo> obsArtistInfo = new ObservableCollection<ArtistInfo>();
 
         public async Task OnGetAsync()
         {
-
-
             var serializer = new JsonSerializer();
             Root jsonRoot = new();
             using (var streamReader = new StreamReader("..\\data.json"))
@@ -41,18 +40,19 @@ namespace aspnetcoreapp.Pages_Musics
             foreach (Item music in playlist){
                 int nbrArtistes = music.track.artists.Count();
                 for (int i=0; i < nbrArtistes; i++){
-                    string artiste = music.track.artists[i].name;
-                    if (artiste != null){
-                        if(musiquesParArtistes.ContainsKey(artiste)){
-                            musiquesParArtistes[artiste]++;
+                    string nameArtiste = music.track.artists[i].name;
+                    if (nameArtiste != null){
+                        if(obsArtistInfo.Any(a => a.name == nameArtiste)){
+                            int nbrSons = obsArtistInfo.First(a => a.name == nameArtiste).nbrSons;
+                            obsArtistInfo.First(a => a.name == nameArtiste).nbrSons = nbrSons + 1;
                         }else{
-                            musiquesParArtistes.Add(artiste,1);
+                            ArtistInfo nouvelArtiste = new ArtistInfo(nameArtiste, 1, music.track.album.images[0].url);
+                            obsArtistInfo.Add(nouvelArtiste);
                         }
                     }
                 }
             }
-
-            var musiquesParArtistesCroissant = musiquesParArtistes.OrderBy(pair => pair.Value);
+            obsArtistInfo = new ObservableCollection<ArtistInfo>(obsArtistInfo.OrderByDescending(p => p.nbrSons));
         }
     }
 }
