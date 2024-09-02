@@ -5,60 +5,29 @@
     ViewData["Title"] = "Index";
 }
 
-<h1>Nombre de sons par artistes</h1>
 
-<div class="col-lg-2 col-sm-2 col-xs-4">
-    <div class="btn-group pull-right bg-clean whith-text">
-        <button type="button" class="btn btn-default dropdown-toggle whith-text" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            Filtrer par <span class="caret"></span>
-        </button>
-        <ul class="dropdown-menu ">
-            <li><a onclick="getProductsAndRender('views')">
-                    <i class="cv cvicon-cv-liked"></i>
-                    Artiste
-                </a>
-            </li>
-            <li><a onclick="getProductsAndRender('date')">
-                    <i class="cv cvicon-cv-calender"></i>
-                    Nombre de Sons
-                </a>
-            </li>
-        </ul>
-    </div>
-    <div class="clearfix"></div>
-</div>
-<div>
+<div class="titre-music">
+    <h1>Nombre de sons par artistes</h1>
     <form class="filter">
-        <p id="filterBy" style="cursor: pointer;">
-            Filtrer par <span class="caret"></span>
+        <p id="filter-by">
+            Trier par <span class="caret"></span>
         </p>
-        <div id="buttonContainer" style="display: none;">
+        <div id="button-container">
             <button>
-                Artiste
+                Artiste (A-Z)
             </button>
             <button>
-                Nombre de sons
+                Artiste (Z-A)
+            </button>
+            <button>
+                Nombre de sons Asc
+            </button>
+            <button>
+                Nombre de sons Desc
             </button>
         </div>
     </form>
 </div>
-
-<script>
-    // Récupère le paragraphe et le conteneur des boutons
-    const paragraph = document.getElementById('filterBy');
-    const buttonContainer = document.getElementById('buttonContainer');
-
-    // Ajoute un écouteur d'événement pour le clic sur le paragraphe
-    paragraph.addEventListener('click', function() {
-        // Change le display du conteneur des boutons pour les afficher
-        if (buttonContainer.style.display == 'none')
-        {
-            buttonContainer.style.display = 'block';
-        }else{
-            buttonContainer.style.display = 'none';
-        }
-    });
-</script>
 
 <div class="multiTable">
 @{
@@ -70,12 +39,32 @@
                 </h3>
             </div>
             <div class="background-image" style="background-image: url('@Html.DisplayFor(modelItem => item.coverUrl)');">
-                <h3 class="text-overlay">
-                    @Html.DisplayFor(modelItem => item.nbrSons)
-                </h3>
+                <div class="pastille">
+                    <h3 class="text-overlay">
+                        @Html.DisplayFor(modelItem => item.nbrSons)
+                    </h3>
+                </div>
             </div>
         </div>
 
     }
 }
 </div>
+
+
+<script>
+    // Récupère le paragraphe et le conteneur des boutons
+    const paragraph = document.getElementById('filter-by');
+    const buttonContainer = document.getElementById('button-container');
+
+    // Ajoute un écouteur d'événement pour le clic sur le paragraphe
+    paragraph.addEventListener('click', function() {
+        // Change le display du conteneur des boutons pour les afficher
+        if (buttonContainer.style.visibility == 'hidden')
+        {
+            buttonContainer.style.visibility = 'visible';
+        }else{
+            buttonContainer.style.visibility = 'hidden';
+        }
+    });
+</script>

@@ -34,6 +34,20 @@ th {
   cursor: pointer;
 }
 
+button {
+  background-color: #181a1b;
+  border: 0px;
+  color: #fff;
+  cursor: pointer;
+  margin-top: 2px;
+}
+
+button:hover {
+  background-color: #2a2d2e;
+  color: #fff;
+}
+
+
 .wdt50 {
   width: 50%;
 }
@@ -55,9 +69,9 @@ th {
   background-position: center;
   display: flex;
   flex-flow: column;
-  justify-content: center;
-  align-items: center;
-  place-content: space-around;
+  justify-content: end;
+  align-items: end;
+  place-content: start;
   text-align: center;
   border-radius: 5%;
 }
@@ -90,4 +104,39 @@ th {
   flex-flow: column;
   height: 110px;
   justify-content: center;
+}
+
+#button-container{
+  display: flex;
+  visibility: hidden;
+  flex-flow: column;
+}
+
+.filter{
+  display: flex;
+  flex-flow: column;
+}
+
+#filter-by{
+  cursor: pointer;
+  display: flex;
+  justify-content: end;
+}
+
+.titre-music{
+  display: flex;
+  flex-flow: row;
+  justify-content: space-between;
+}
+
+.pastille{
+  display:inline;
+  position: relative;
+  vertical-align: middle;
+  height: 50px;
+  width: 50px;
+  top: -25px;
+  right: -25px;
+  background-color: #f037ac90;
+  border-radius: 100%;
 }
