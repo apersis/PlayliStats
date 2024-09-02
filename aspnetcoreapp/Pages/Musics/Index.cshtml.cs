@@ -24,6 +24,9 @@ namespace aspnetcoreapp.Pages_Musics
 
         public ObservableCollection<ArtistInfo> obsArtistInfo = new ObservableCollection<ArtistInfo>();
 
+        public static Random aleatoire = new Random();
+
+
         public async Task OnGetAsync()
         {
             var serializer = new JsonSerializer();
@@ -45,6 +48,10 @@ namespace aspnetcoreapp.Pages_Musics
                         if(obsArtistInfo.Any(a => a.name == nameArtiste)){
                             int nbrSons = obsArtistInfo.First(a => a.name == nameArtiste).nbrSons;
                             obsArtistInfo.First(a => a.name == nameArtiste).nbrSons = nbrSons + 1;
+                            int Millisecond = DateTime.Now.Millisecond;
+                            if(Millisecond%5 == 0){
+                                obsArtistInfo.First(a => a.name == nameArtiste).coverUrl = music.track.album.images[0].url;
+                            }
                         }else{
                             ArtistInfo nouvelArtiste = new ArtistInfo(nameArtiste, 1, music.track.album.images[0].url);
                             obsArtistInfo.Add(nouvelArtiste);

@@ -8169,19 +8169,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\apers\\.nuget\\packages\\": {}
+    "C:\\Users\\Pc\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\apers\\Documents\\SpotifyAPI\\PlayliStats\\aspnetcoreapp\\aspnetcoreapp.csproj",
+      "projectUniqueName": "C:\\Users\\Pc\\Documents\\SpotifyAPI\\aspnetcoreapp\\aspnetcoreapp.csproj",
       "projectName": "aspnetcoreapp",
-      "projectPath": "C:\\Users\\apers\\Documents\\SpotifyAPI\\PlayliStats\\aspnetcoreapp\\aspnetcoreapp.csproj",
-      "packagesPath": "C:\\Users\\apers\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\apers\\Documents\\SpotifyAPI\\PlayliStats\\aspnetcoreapp\\obj\\",
+      "projectPath": "C:\\Users\\Pc\\Documents\\SpotifyAPI\\aspnetcoreapp\\aspnetcoreapp.csproj",
+      "packagesPath": "C:\\Users\\Pc\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Pc\\Documents\\SpotifyAPI\\aspnetcoreapp\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\apers\\AppData\\Roaming\\NuGet\\NuGet.Config"
+        "C:\\Users\\Pc\\AppData\\Roaming\\NuGet\\NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net8.0"
