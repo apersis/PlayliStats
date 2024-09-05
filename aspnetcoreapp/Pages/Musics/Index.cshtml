@@ -8,12 +8,12 @@
 
 <div class="titre-music">
     <h1>Nombre de sons par artistes</h1>
-    <form class="filter">
+    <div class="filter">
         <p id="filter-by">
             Trier par <span class="caret"></span>
         </p>
         <div id="button-container">
-            <button>
+            <button onclick="ArtistAsc()">
                 Artiste (A-Z)
             </button>
             <button>
@@ -26,7 +26,7 @@
                 Nombre de sons Desc
             </button>
         </div>
-    </form>
+    </div>
 </div>
 
 <div class="multiTable">
@@ -40,7 +40,7 @@
             </div>
             <div class="background-image" style="background-image: url('@Html.DisplayFor(modelItem => item.coverUrl)');">
                 <div class="pastille">
-                    <h3 class="text-overlay">
+                    <h3 class="text-pastille">
                         @Html.DisplayFor(modelItem => item.nbrSons)
                     </h3>
                 </div>
@@ -67,4 +67,19 @@
             buttonContainer.style.visibility = 'hidden';
         }
     });
+
+    function ArtistAsc() {
+        $.ajax({
+            type: "POST",
+            url: "Index.cshtml.cs/ArtistAsc",
+            contentType: "application/json; charset=utf-8",
+            dataType: "json",
+            success: function (response) {
+                alert(response.d); // Affiche le message retourné par le serveur
+            },
+            error: function (xhr, status, error) {
+                console.error("Erreur: " + error);
+            }
+        });
+    }
 </script>

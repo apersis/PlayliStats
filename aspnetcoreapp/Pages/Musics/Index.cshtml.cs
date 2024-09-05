@@ -24,8 +24,11 @@ namespace aspnetcoreapp.Pages_Musics
 
         public ObservableCollection<ArtistInfo> obsArtistInfo = new ObservableCollection<ArtistInfo>();
 
-        public static Random aleatoire = new Random();
 
+        protected void ArtistAsc(object sender, EventArgs e)
+            {
+                obsArtistInfo = new ObservableCollection<ArtistInfo>(obsArtistInfo.OrderBy(p => p.name));
+            }
 
         public async Task OnGetAsync()
         {
